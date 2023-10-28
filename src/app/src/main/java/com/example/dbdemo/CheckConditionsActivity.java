@@ -29,7 +29,7 @@ import java.util.Locale;
 public class CheckConditionsActivity extends AppCompatActivity {
     private SQLiteDatabase database;
     private TextView textView1, textView2, textView3;
-    private EditText makeTags, findTags;
+    private EditText findTags;
 
 
     @Override
@@ -69,7 +69,6 @@ public class CheckConditionsActivity extends AppCompatActivity {
         textView1 = findViewById(R.id.resultOne);
         textView2 = findViewById(R.id.resultTwo);
         textView3 = findViewById(R.id.resultThree);
-        makeTags = findViewById(R.id.tagsInput);
         findTags = findViewById(R.id.tagSearchInput);
 
 
