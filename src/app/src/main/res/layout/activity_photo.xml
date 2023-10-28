@@ -88,7 +88,7 @@
                 android:textSize="15pt"
                 android:layout_margin="10pt"
                 android:layout_gravity="center"
-                android:onClick="findTags"
+                android:onClick="findConditionById"
                 />
 
             <TextView

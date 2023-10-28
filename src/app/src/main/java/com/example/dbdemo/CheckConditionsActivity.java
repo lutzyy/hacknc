@@ -82,52 +82,20 @@ public class CheckConditionsActivity extends AppCompatActivity {
         cursor.moveToLast();
 
 
-//
-            @SuppressLint("Range") int CONDITION_ID = cursor.getInt(1);
-            @SuppressLint("Range") String CONDITION = cursor.getString(2);
-            @SuppressLint("Range") String MED = cursor.getString(3);
-            String entryName = "Condition: " + CONDITION + " with medication: " + MED;
-            textView1.setText(entryName);
-
-
-
-        cursor.close();
-    }
-
-    private void fetchTopThreeEntriesFromconditionsTableByTag(String searchTag) {
-
-        String query = "SELECT * FROM conditionsTable;";
-        Cursor cursor = database.rawQuery(query, null);
-        cursor.moveToLast();
-
-        int index = 0;
-        while (index < 3) {
-            @SuppressLint("Range") String tags = cursor.getString(cursor.getColumnIndex("tags"));
-            // this splits the
-            String[] wordsArray = tags.split(",\\s*");
-            HashSet<String> tagSet = new HashSet<>(Arrays.asList(wordsArray));
-            if (tagSet.contains(searchTag) || tagSet.contains("unavailable")) {
-                @SuppressLint("Range") String date = cursor.getString(cursor.getColumnIndex("date"));
-                @SuppressLint("Range") String time = cursor.getString(cursor.getColumnIndex("time"));
-                String entryName = tags + "\n" + date + " - " + time;
-
-                if (index == 0) {
-                    textView1.setText(entryName);
-
-                } else if (index == 1) {
-                    textView2.setText(entryName);
-
-                } else if (index == 2) {
-                    textView3.setText(entryName);
-                }
-                index++;
-            }
-            cursor.moveToPrevious();
-        }
+//      this is reused so make into helper method later
+        @SuppressLint("Range") int CONDITION_ID = cursor.getInt(1);
+        @SuppressLint("Range") String CONDITION = cursor.getString(2);
+        @SuppressLint("Range") String MED = cursor.getString(3);
+        String entryName = "Condition: " + CONDITION + " with medication: " + MED + "\n ID:" +
+                CONDITION_ID;
+        textView1.setText(entryName);
         cursor.close();
     }
 
 
+
+
+//    really not sure if we want to save new conditions to the database
     public void saveCondition(View view) {
 
 
@@ -152,14 +120,24 @@ public class CheckConditionsActivity extends AppCompatActivity {
 
     }
 
-    public void findTags(View view) {
-        String searchText = String.valueOf(findTags.getText());
-        if (searchText.equals("") || searchText.equals(" ")) {
-            fetchTopThreeEntriesFromconditionsTable();
-        } else {
-            fetchTopThreeEntriesFromconditionsTableByTag(searchText);
-            findTags.setText("");
-        }
+    public void findConditionById(View view) {
+        String idString = String.valueOf(findTags.getText());
+//      later do error checking if value is a real integer, and in database
+
+        String query = "SELECT * FROM conditionsTable WHERE CONDITION_ID = "+idString+";";
+        Cursor cursor = database.rawQuery(query, null);
+        cursor.moveToLast();
+        
+        @SuppressLint("Range") int CONDITION_ID = cursor.getInt(1);
+        @SuppressLint("Range") String CONDITION = cursor.getString(2);
+        @SuppressLint("Range") String MED = cursor.getString(3);
+        String entryName = "Condition: " + CONDITION + " with medication: " + MED + "\n ID:" +
+                CONDITION_ID;
+        textView1.setText(entryName);
+        cursor.close();
+
+//        this closes the keyboard and resets the field to blank
+        findTags.setText("");
         InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(findTags.getWindowToken(), 0);
 
