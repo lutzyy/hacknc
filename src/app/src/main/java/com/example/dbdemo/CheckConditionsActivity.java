@@ -94,32 +94,6 @@ public class CheckConditionsActivity extends AppCompatActivity {
 
 
 
-
-//    really not sure if we want to save new conditions to the database
-    public void saveCondition(View view) {
-
-
-
-//            String tags = String.valueOf(makeTags.getText());
-//            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-//            imm.hideSoftInputFromWindow(makeTags.getWindowToken(), 0);
-//            makeTags.setText("");
-//
-//
-//
-//
-//
-//            ContentValues cv = new ContentValues();
-//            cv.put("CONDITION", tags);
-//            cv.put("CONDITION_ID", timeStr);
-//
-//            cv.put("tags", tags);
-//            database.insert("conditionsTable", null, cv);
-//            fetchTopThreeEntriesFromconditionsTable();
-
-
-    }
-
     public void findConditionById(View view) {
         String idString = String.valueOf(findTags.getText());
 //      later do error checking if value is a real integer, and in database
@@ -127,7 +101,7 @@ public class CheckConditionsActivity extends AppCompatActivity {
         String query = "SELECT * FROM conditionsTable WHERE CONDITION_ID = "+idString+";";
         Cursor cursor = database.rawQuery(query, null);
         cursor.moveToLast();
-        
+
         @SuppressLint("Range") int CONDITION_ID = cursor.getInt(1);
         @SuppressLint("Range") String CONDITION = cursor.getString(2);
         @SuppressLint("Range") String MED = cursor.getString(3);

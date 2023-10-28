@@ -35,45 +35,9 @@
             android:orientation="horizontal"
             tools:ignore="NestedWeights">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="62dp"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="15dp"
-                android:layout_weight="0.5"
-                android:labelFor="@id/tagsInput"
-                android:text="@string/tags"
-                android:textSize="15pt"
-                tools:ignore="NestedWeights" />
-            <EditText
-                android:layout_width="0dp"
-                android:id="@+id/tagsInput"
-                android:layout_weight="0.5"
-                android:layout_marginEnd="15dp"
-                android:layout_gravity="center_vertical"
-                android:layout_height="wrap_content"
-
-                android:inputType="text"
-                android:autofillHints="" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2"
-            android:orientation="horizontal">
-
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/save"
-                android:textSize="15pt"
-                android:layout_margin="10pt"
-                android:layout_gravity="center"
-                android:onClick="saveCondition"
-                tools:ignore="ButtonStyle" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
