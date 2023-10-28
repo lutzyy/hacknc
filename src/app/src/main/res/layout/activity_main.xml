@@ -15,20 +15,15 @@
    >
 
         <Button
-            android:id="@+id/photobutton"
+            android:id="@+id/checkButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:onClick="startPhotoActivity"
-            android:text="Photo tagger" />
+            android:onClick="startCheckConditions"
+            android:text="Check my conditions." />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:onClick="startSketchActivity"
-            android:text="Sketch tagger"
-            />
+
+
 
 
 

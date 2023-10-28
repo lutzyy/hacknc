@@ -19,7 +19,7 @@
             android:name=".SketchRefresh"
             android:exported="false" />
         <activity
-            android:name=".Photo"
+            android:name=".CheckConditionsActivity"
             android:exported="false" />
         <activity
             android:name=".Sketch"

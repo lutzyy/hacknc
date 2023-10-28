@@ -16,14 +16,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void startPhotoActivity(View view) {
-        Intent photoActivityIntent = new Intent(this, Photo.class);
-        startActivity(photoActivityIntent);
+    public void startCheckConditions(View view) {
+        Intent checkConditionsIntent = new Intent(this, CheckConditionsActivity.class);
+        startActivity(checkConditionsIntent);
     }
 
 
-    public void startSketchActivity(View view) {
-        Intent sketchIntent = new Intent(this, NewSketch.class);
-        startActivity(sketchIntent);
-    }
+
 }
