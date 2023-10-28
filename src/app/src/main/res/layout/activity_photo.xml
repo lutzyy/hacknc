@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Photo">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:id="@+id/bigImg"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="@color/design_default_color_background"
+        android:layout_margin="10pt"
+        android:contentDescription="@string/mostrecentimage" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:orientation="horizontal"
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="62dp"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="15dp"
+                android:layout_weight="0.5"
+                android:labelFor="@id/tagsInput"
+                android:text="@string/tags"
+                android:textSize="15pt"
+                tools:ignore="NestedWeights" />
+            <EditText
+                android:layout_width="0dp"
+                android:id="@+id/tagsInput"
+                android:layout_weight="0.5"
+                android:layout_marginEnd="15dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+
+                android:inputType="text"
+                android:autofillHints="" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/camera"
+                android:textSize="15pt"
+                android:layout_margin="10pt"
+                android:layout_gravity="center"
+                android:onClick="startCamera"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:textSize="15pt"
+                android:layout_margin="10pt"
+                android:layout_gravity="center"
+                android:onClick="saveImage"
+                tools:ignore="ButtonStyle" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/find"
+                android:textSize="15pt"
+                android:layout_margin="10pt"
+                android:layout_gravity="center"
+                android:onClick="findTags"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0"
+                android:layout_height="0dp"
+                android:labelFor="@id/tagSearchInput"
+                android:layout_gravity="center_vertical"
+                android:text="@string/tags"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:id="@+id/tagSearchInput"
+                android:layout_weight="0.5"
+                android:layout_marginEnd="15dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+
+                android:inputType="text"
+                android:autofillHints="" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="0.1"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.4"
+                android:id="@+id/imageOne"
+                android:contentDescription="@string/top_image_result"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/resultOne"
+                android:layout_width="0dp"
+                android:layout_weight="0.6"
+                android:layout_height="match_parent"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="0.1"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.4"
+                android:layout_height="match_parent"
+                android:id="@+id/imageTwo"
+                android:contentDescription="@string/second_image_result" />
+
+            <TextView
+                android:id="@+id/resultTwo"
+                android:layout_width="0dp"
+                android:layout_weight="0.6"
+                android:layout_height="match_parent"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="0.1"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            >
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.4"
+                android:layout_height="match_parent"
+                android:id="@+id/imageThree"
+                android:contentDescription="@string/third_image_result" />
+
+            <TextView
+                android:id="@+id/resultThree"
+                android:layout_width="0dp"
+                android:layout_weight="0.6"
+                android:layout_height="match_parent"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:onClick="backHome" />
+
+</LinearLayout>
