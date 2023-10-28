@@ -38,41 +38,37 @@ public class CheckConditionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_photo);
 
         database = openOrCreateDatabase("my_database.db", MODE_PRIVATE, null);
+        createTableIfNotExists();
 
-        // Create the first table if it doesn't exist
+        textView1 = findViewById(R.id.resultOne);
+        findTags = findViewById(R.id.tagSearchInput);
+
+        fetchTopThreeEntriesFromconditionsTable();
+    }
+
+    private void createTableIfNotExists() {
         database.execSQL("CREATE TABLE IF NOT EXISTS conditionsTable ("
                 + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "CONDITION_ID INTEGER, "
                 + "CONDITION TEXT, "
                 + "MED TEXT"
                 + ");");
-
-
-
-
-
-
         // Check if the table is empty and insert sample values if needed
         Cursor cursor = database.rawQuery("SELECT COUNT(*) FROM conditionsTable", null);
         if (cursor != null && cursor.moveToFirst()) {
-
-            int count = cursor.getInt(0);
-            cursor.close();
-            if (count == 0) {
-                database.execSQL("INSERT INTO conditionsTable (CONDITION_ID, CONDITION, MED) VALUES (88, 'spontaneous combustion', 'unavailable');");
-                database.execSQL("INSERT INTO conditionsTable (CONDITION_ID, CONDITION, MED) VALUES (124, 'ligma', 'skooby snacka');");
-                database.execSQL("INSERT INTO conditionsTable (CONDITION_ID, CONDITION, MED) VALUES (125, 'ligma', 'skooby snacka');");
-
-            }
+            createDummyData(cursor);
         }
+    }
 
-        textView1 = findViewById(R.id.resultOne);
-        textView2 = findViewById(R.id.resultTwo);
-        textView3 = findViewById(R.id.resultThree);
-        findTags = findViewById(R.id.tagSearchInput);
+    private void createDummyData(Cursor cursor) {
+        int count = cursor.getInt(0);
+        cursor.close();
+        if (count == 0) {
+            database.execSQL("INSERT INTO conditionsTable (CONDITION_ID, CONDITION, MED) VALUES (88, 'spontaneous combustion', 'unavailable');");
+            database.execSQL("INSERT INTO conditionsTable (CONDITION_ID, CONDITION, MED) VALUES (124, 'ligma', 'skooby snacka');");
+            database.execSQL("INSERT INTO conditionsTable (CONDITION_ID, CONDITION, MED) VALUES (125, 'ligma', 'skooby snacka');");
 
-
-        fetchTopThreeEntriesFromconditionsTable();
+        }
     }
 
     private void fetchTopThreeEntriesFromconditionsTable() {
@@ -96,6 +92,11 @@ public class CheckConditionsActivity extends AppCompatActivity {
     public void findConditionById(View view) {
         String idString = String.valueOf(findTags.getText());
 //      later do error checking if value is a real integer, and in database
+        try {
+            Integer.valueOf(idString);
+        } catch (Exception e) {
+            return;
+        }
 
         String query = "SELECT * FROM conditionsTable WHERE CONDITION_ID = "+idString+";";
         Cursor cursor = database.rawQuery(query, null);
