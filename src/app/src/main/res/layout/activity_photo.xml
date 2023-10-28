@@ -7,14 +7,20 @@
     android:orientation="vertical"
     tools:context=".CheckConditionsActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:id="@+id/bigImg"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:background="@color/design_default_color_background"
-        android:layout_margin="10pt"
-        android:contentDescription="@string/mostrecentimage" />
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:id="@+id/bigImg"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="0.5"-->
+<!--        android:background="@color/cardview_dark_background"-->
+<!--        android:layout_margin="10pt"-->
+<!--        android:contentDescription="@string/mostrecentimage" />-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20pt"
+        android:text="Text prompt or welcome message." />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,15 +62,6 @@
             android:layout_weight="0.2"
             android:orientation="horizontal">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/camera"
-                android:textSize="15pt"
-                android:layout_margin="10pt"
-                android:layout_gravity="center"
-                android:onClick="startCamera"
-                tools:ignore="ButtonStyle" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -122,12 +119,7 @@
             android:orientation="horizontal"
             >
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="0.4"
-                android:id="@+id/imageOne"
-                android:contentDescription="@string/top_image_result"
-                android:layout_height="match_parent"/>
+
 
             <TextView
                 android:id="@+id/resultOne"
@@ -146,12 +138,7 @@
             android:orientation="horizontal"
             >
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="0.4"
-                android:layout_height="match_parent"
-                android:id="@+id/imageTwo"
-                android:contentDescription="@string/second_image_result" />
+
 
             <TextView
                 android:id="@+id/resultTwo"
@@ -169,12 +156,7 @@
             android:layout_marginTop="10dp"
             >
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="0.4"
-                android:layout_height="match_parent"
-                android:id="@+id/imageThree"
-                android:contentDescription="@string/third_image_result" />
+
 
             <TextView
                 android:id="@+id/resultThree"

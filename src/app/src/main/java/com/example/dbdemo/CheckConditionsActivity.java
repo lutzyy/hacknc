@@ -30,7 +30,7 @@ public class CheckConditionsActivity extends AppCompatActivity {
     private SQLiteDatabase database;
     private TextView textView1, textView2, textView3;
     private EditText makeTags, findTags;
-    private ImageView bigImg, imageOne, imageTwo, imageThree;
+
     private Bitmap bigImgBitmap;
 
     @Override
@@ -45,7 +45,6 @@ public class CheckConditionsActivity extends AppCompatActivity {
                 + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "date TEXT, "
                 + "time TEXT, "
-                + "image BLOB, "
                 + "tags TEXT" // store comma-separated tags
                 + ");");
         // Check if the table is empty and insert sample values if needed
@@ -57,9 +56,9 @@ public class CheckConditionsActivity extends AppCompatActivity {
             if (count == 0) {
                 // In case no images in db or not enough matching source, make first three rows tagged 'unavailable' an
                 // w/o an image
-                database.execSQL("INSERT INTO table1 (date, time, image, tags) VALUES ('', '', NULL, 'unavailable');");
-                database.execSQL("INSERT INTO table1 (date, time, image, tags) VALUES ('', '', NULL, 'unavailable');");
-                database.execSQL("INSERT INTO table1 (date, time, image, tags) VALUES ('', '', NULL, 'unavailable');");
+                database.execSQL("INSERT INTO table1 (date, time, tags) VALUES ('', '', 'unavailable');");
+                database.execSQL("INSERT INTO table1 (date, time, tags) VALUES ('', '', 'unavailable');");
+                database.execSQL("INSERT INTO table1 (date, time, tags) VALUES ('', '', 'unavailable');");
             }
         }
 
@@ -68,10 +67,7 @@ public class CheckConditionsActivity extends AppCompatActivity {
         textView3 = findViewById(R.id.resultThree);
         makeTags = findViewById(R.id.tagsInput);
         findTags = findViewById(R.id.tagSearchInput);
-        bigImg = findViewById(R.id.bigImg);
-        imageOne = findViewById(R.id.imageOne);
-        imageTwo = findViewById(R.id.imageTwo);
-        imageThree = findViewById(R.id.imageThree);
+
         bigImgBitmap = null;
 
         fetchTopThreeEntriesFromTable1();
@@ -87,27 +83,17 @@ public class CheckConditionsActivity extends AppCompatActivity {
             @SuppressLint("Range") String date = cursor.getString(cursor.getColumnIndex("date"));
             @SuppressLint("Range") String time = cursor.getString(cursor.getColumnIndex("time"));
             @SuppressLint("Range") String tags = cursor.getString(cursor.getColumnIndex("tags"));
-            @SuppressLint("Range") byte[] ba = cursor.getBlob(cursor.getColumnIndex("image"));
             String entryName = tags + "\n" + date + " - " + time;
-            Bitmap b = null;
-            if (ba != null) {
-                b = BitmapFactory.decodeByteArray(ba, 0, ba.length);
-            }
+
             if (index == 0) {
                 textView1.setText(entryName);
-                if (b != null) {
-                    imageOne.setImageBitmap(b);
-                }
+
             } else if (index == 1) {
                 textView2.setText(entryName);
-                if (b != null) {
-                    imageTwo.setImageBitmap(b);
-                }
+
             } else if (index == 2) {
                 textView3.setText(entryName);
-                if (b != null) {
-                    imageThree.setImageBitmap(b);
-                }
+
             }
             index++;
             cursor.moveToPrevious();
@@ -130,23 +116,16 @@ public class CheckConditionsActivity extends AppCompatActivity {
             if (tagSet.contains(searchTag) || tagSet.contains("unavailable")) {
                 @SuppressLint("Range") String date = cursor.getString(cursor.getColumnIndex("date"));
                 @SuppressLint("Range") String time = cursor.getString(cursor.getColumnIndex("time"));
-                @SuppressLint("Range") byte[] ba = cursor.getBlob(cursor.getColumnIndex("image"));
                 String entryName = tags + "\n" + date + " - " + time;
-                Bitmap b = null;
-                if (ba != null) {
-                    b = BitmapFactory.decodeByteArray(ba, 0, ba.length);
-                }
+
                 if (index == 0) {
                     textView1.setText(entryName);
-                    imageOne.setImageBitmap(b);
 
                 } else if (index == 1) {
                     textView2.setText(entryName);
-                    imageTwo.setImageBitmap(b);
 
                 } else if (index == 2) {
                     textView3.setText(entryName);
-                    imageThree.setImageBitmap(b);
                 }
                 index++;
             }
@@ -156,27 +135,13 @@ public class CheckConditionsActivity extends AppCompatActivity {
     }
 
 
-    public void startCamera(View view) {
-        Intent cam_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(cam_intent, 1);
-    }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
-            Bundle extras = data.getExtras();
-            bigImgBitmap = (Bitmap) extras.get("data");
-            bigImg.setImageBitmap(bigImgBitmap);
-        }
-    }
+
 
     public void saveImage(View view) {
-        if (bigImgBitmap != null) {
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bigImgBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-            byte[] ba = stream.toByteArray();
+
+
 
             String tags = String.valueOf(makeTags.getText());
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
@@ -191,14 +156,15 @@ public class CheckConditionsActivity extends AppCompatActivity {
             String timeStr = timeFormat.format(now);
             timeStr = timeStr.toLowerCase(Locale.US);
 
+
             ContentValues cv = new ContentValues();
             cv.put("date", dateStr);
             cv.put("time", timeStr);
-            cv.put("image", ba);
+
             cv.put("tags", tags);
             database.insert("table1", null, cv);
             fetchTopThreeEntriesFromTable1();
-        }
+
 
     }
 
