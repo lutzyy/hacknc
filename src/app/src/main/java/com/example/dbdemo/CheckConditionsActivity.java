@@ -31,7 +31,6 @@ public class CheckConditionsActivity extends AppCompatActivity {
     private TextView textView1, textView2, textView3;
     private EditText makeTags, findTags;
 
-    private Bitmap bigImgBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +67,6 @@ public class CheckConditionsActivity extends AppCompatActivity {
         makeTags = findViewById(R.id.tagsInput);
         findTags = findViewById(R.id.tagSearchInput);
 
-        bigImgBitmap = null;
 
         fetchTopThreeEntriesFromTable1();
     }
