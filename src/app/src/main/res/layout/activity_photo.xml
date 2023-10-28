@@ -70,7 +70,7 @@
                 android:textSize="15pt"
                 android:layout_margin="10pt"
                 android:layout_gravity="center"
-                android:onClick="saveImage"
+                android:onClick="saveCondition"
                 tools:ignore="ButtonStyle" />
 
         </LinearLayout>

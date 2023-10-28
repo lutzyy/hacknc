@@ -40,24 +40,29 @@ public class CheckConditionsActivity extends AppCompatActivity {
         database = openOrCreateDatabase("my_database.db", MODE_PRIVATE, null);
 
         // Create the first table if it doesn't exist
-        database.execSQL("CREATE TABLE IF NOT EXISTS table1 ("
+        database.execSQL("CREATE TABLE IF NOT EXISTS conditionsTable ("
                 + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + "date TEXT, "
-                + "time TEXT, "
-                + "tags TEXT" // store comma-separated tags
+                + "CONDITION_ID INTEGER, "
+                + "CONDITION TEXT, "
+                + "MED TEXT"
                 + ");");
+
+
+
+
+
+
         // Check if the table is empty and insert sample values if needed
-        Cursor cursor = database.rawQuery("SELECT COUNT(*) FROM table1", null);
+        Cursor cursor = database.rawQuery("SELECT COUNT(*) FROM conditionsTable", null);
         if (cursor != null && cursor.moveToFirst()) {
+
             int count = cursor.getInt(0);
             cursor.close();
-
             if (count == 0) {
-                // In case no images in db or not enough matching source, make first three rows tagged 'unavailable' an
-                // w/o an image
-                database.execSQL("INSERT INTO table1 (date, time, tags) VALUES ('', '', 'unavailable');");
-                database.execSQL("INSERT INTO table1 (date, time, tags) VALUES ('', '', 'unavailable');");
-                database.execSQL("INSERT INTO table1 (date, time, tags) VALUES ('', '', 'unavailable');");
+                database.execSQL("INSERT INTO conditionsTable (CONDITION_ID, CONDITION, MED) VALUES (88, 'spontaneous combustion', 'unavailable');");
+                database.execSQL("INSERT INTO conditionsTable (CONDITION_ID, CONDITION, MED) VALUES (124, 'ligma', 'skooby snacka');");
+                database.execSQL("INSERT INTO conditionsTable (CONDITION_ID, CONDITION, MED) VALUES (125, 'ligma', 'skooby snacka');");
+
             }
         }
 
@@ -68,47 +73,37 @@ public class CheckConditionsActivity extends AppCompatActivity {
         findTags = findViewById(R.id.tagSearchInput);
 
 
-        fetchTopThreeEntriesFromTable1();
+        fetchTopThreeEntriesFromconditionsTable();
     }
 
-    private void fetchTopThreeEntriesFromTable1() {
-        String query = "SELECT * FROM table1;";
+    private void fetchTopThreeEntriesFromconditionsTable() {
+        String query = "SELECT * FROM conditionsTable;";
         Cursor cursor = database.rawQuery(query, null);
         cursor.moveToLast();
 
-        int index = 0;
-        while (index < 3) {
-            @SuppressLint("Range") String date = cursor.getString(cursor.getColumnIndex("date"));
-            @SuppressLint("Range") String time = cursor.getString(cursor.getColumnIndex("time"));
-            @SuppressLint("Range") String tags = cursor.getString(cursor.getColumnIndex("tags"));
-            String entryName = tags + "\n" + date + " - " + time;
 
-            if (index == 0) {
-                textView1.setText(entryName);
+//
+            @SuppressLint("Range") int CONDITION_ID = cursor.getInt(1);
+            @SuppressLint("Range") String CONDITION = cursor.getString(2);
+            @SuppressLint("Range") String MED = cursor.getString(3);
+            String entryName = "Condition: " + CONDITION + " with medication: " + MED;
+            textView1.setText(entryName);
 
-            } else if (index == 1) {
-                textView2.setText(entryName);
 
-            } else if (index == 2) {
-                textView3.setText(entryName);
-
-            }
-            index++;
-            cursor.moveToPrevious();
-        }
 
         cursor.close();
     }
 
-    private void fetchTopThreeEntriesFromTable1ByTag(String searchTag) {
+    private void fetchTopThreeEntriesFromconditionsTableByTag(String searchTag) {
 
-        String query = "SELECT * FROM table1;";
+        String query = "SELECT * FROM conditionsTable;";
         Cursor cursor = database.rawQuery(query, null);
         cursor.moveToLast();
 
         int index = 0;
         while (index < 3) {
             @SuppressLint("Range") String tags = cursor.getString(cursor.getColumnIndex("tags"));
+            // this splits the
             String[] wordsArray = tags.split(",\\s*");
             HashSet<String> tagSet = new HashSet<>(Arrays.asList(wordsArray));
             if (tagSet.contains(searchTag) || tagSet.contains("unavailable")) {
@@ -133,35 +128,26 @@ public class CheckConditionsActivity extends AppCompatActivity {
     }
 
 
+    public void saveCondition(View view) {
 
 
 
-
-    public void saveImage(View view) {
-
-
-
-            String tags = String.valueOf(makeTags.getText());
-            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(makeTags.getWindowToken(), 0);
-            makeTags.setText("");
-
-            Date now = new Date();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("MMM d, yyyy", Locale.US);
-            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mma", Locale.US);
-
-            String dateStr = dateFormat.format(now);
-            String timeStr = timeFormat.format(now);
-            timeStr = timeStr.toLowerCase(Locale.US);
-
-
-            ContentValues cv = new ContentValues();
-            cv.put("date", dateStr);
-            cv.put("time", timeStr);
-
-            cv.put("tags", tags);
-            database.insert("table1", null, cv);
-            fetchTopThreeEntriesFromTable1();
+//            String tags = String.valueOf(makeTags.getText());
+//            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+//            imm.hideSoftInputFromWindow(makeTags.getWindowToken(), 0);
+//            makeTags.setText("");
+//
+//
+//
+//
+//
+//            ContentValues cv = new ContentValues();
+//            cv.put("CONDITION", tags);
+//            cv.put("CONDITION_ID", timeStr);
+//
+//            cv.put("tags", tags);
+//            database.insert("conditionsTable", null, cv);
+//            fetchTopThreeEntriesFromconditionsTable();
 
 
     }
@@ -169,9 +155,9 @@ public class CheckConditionsActivity extends AppCompatActivity {
     public void findTags(View view) {
         String searchText = String.valueOf(findTags.getText());
         if (searchText.equals("") || searchText.equals(" ")) {
-            fetchTopThreeEntriesFromTable1();
+            fetchTopThreeEntriesFromconditionsTable();
         } else {
-            fetchTopThreeEntriesFromTable1ByTag(searchText);
+            fetchTopThreeEntriesFromconditionsTableByTag(searchText);
             findTags.setText("");
         }
         InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
