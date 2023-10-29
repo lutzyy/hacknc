@@ -104,12 +104,8 @@ public class CheckConditionsActivity extends AppCompatActivity {
                 public void onClick(View v) {
 
                     button.setVisibility(View.GONE); // Make the button disappear
-
-//                    v.setEnabled(false); // Disable the clicked button
-
                     symptomsSet.add(sympName);
                     adapter.add(sympName);
-//                    v.setBackgroundColor(getResources().getColor(android.R.color.darker_gray)); // Set a gray background
                 }
             });
 
@@ -138,9 +134,9 @@ public class CheckConditionsActivity extends AppCompatActivity {
         int count = cursor.getInt(0);
         cursor.close();
         if (count == 0) {
-            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('tuberculosis', 'coughing,screaming', 'peanut butter');");
-            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('hergitis', 'eating', 'peanut butter');");
-            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('sinitosis', 'Diarrhea', 'peanut butter');");
+            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('dangerouscollum', 'Swollen lymphnodes, Abdominal pain, Diarrhea, Jointpain, Headache, Coughing, Rash', 'stritindel, zollinemine, rinelinelin');");
+            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('excatecollum', 'Nausea, Abdominal pain, Headache, Coughing, Rash, Loss of appetite, Vomiting', 'rinelinelin, crirestamobeta, alphqueren');");
+            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('intricantcollum', 'Muscle aches, Swollen lymphnodes, Fatigue, Nausea, Dizziness', 'ropaphpotminerest, truarmquezolacet\n');");
         }
     }
 
