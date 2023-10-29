@@ -20,129 +20,56 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20pt"
-        android:text="Text prompt or welcome message." />
+        android:text="Please type in your symptoms"
+        android:textSize="10pt" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="418dp"
         android:layout_weight="1.5"
         android:orientation="vertical">
 
+
         <ScrollView
-            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="235dp">
+
 
             <LinearLayout
+                android:id="@+id/buttonLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/buttonLayout"
                 android:orientation="vertical">
 
                 <!-- Add your UI elements here -->
 
+
             </LinearLayout>
+
+
         </ScrollView>
 
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Coughing"
-                android:onClick="clickCoughing"
-                />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="dry eyes"
-                android:onClick="clickEyes"
-                />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="clickWheezing"
-                android:text="wheezing" />
-
-
-
-        </LinearLayout>
-
-
-        <!-- The UI list where you want to add items -->
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+
+            android:layout_height="301dp" />
 
 
+        <!-- The UI list where you want to add items -->
 
-
-
-
-
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:layout_weight="0.2"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_marginTop="250dp"-->
-<!--            android:background="@color/cardview_dark_background"-->
-<!--            >-->
-
-<!--            <Button-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/find"-->
-<!--                android:textSize="15pt"-->
-<!--                android:layout_margin="10pt"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:onClick="findConditionById"-->
-<!--                />-->
-
-<!--            <TextView-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_weight="0"-->
-<!--                android:layout_height="0dp"-->
-<!--                android:labelFor="@id/tagSearchInput"-->
-<!--                android:layout_gravity="center_vertical"-->
-<!--                android:text="@string/tags"/>-->
-
-<!--            <EditText-->
-<!--                android:layout_width="0dp"-->
-<!--                android:id="@+id/tagSearchInput"-->
-<!--                android:layout_weight="0.5"-->
-<!--                android:layout_marginEnd="15dp"-->
-<!--                android:layout_gravity="center_vertical"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginRight="15dp"-->
-
-<!--                android:background="@color/material_dynamic_neutral90"-->
-<!--                android:inputType="text"-->
-<!--                android:autofillHints="" />-->
-
-<!--        </LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_weight="0.1"
             android:layout_height="0dp"
-            android:orientation="horizontal"
-            >
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/resultOne"
                 android:layout_width="0dp"
-                android:layout_weight="0.6"
                 android:layout_height="match_parent"
-                />
+                android:layout_weight="0.6" />
 
         </LinearLayout>
 
@@ -150,6 +77,8 @@
 
 
     </LinearLayout>
+
+
 
     <Button
         android:layout_width="wrap_content"

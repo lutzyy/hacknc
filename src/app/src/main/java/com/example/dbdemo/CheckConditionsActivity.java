@@ -33,30 +33,31 @@ import java.util.Locale;
 
 
 public class CheckConditionsActivity extends AppCompatActivity {
-    private String[] diseaseNames = {
-            "dangerouscollum",
-            "excatecollum",
-            "intricantcollum",
-            "nontremblcollum",
-            "severuscollum",
-            "evencollum",
-            "flexibilecollum",
-            "dangerousgula",
-            "excategula",
-            "intricantgula",
-            "nontremblgula",
-            "severusgula",
-            "evengula",
-            "flexibilegula",
-            "dangerousguttur",
-            "excateguttur",
-            "intricantguttur",
-            "nontremblguttur",
-            "severusguttur",
-            "evenguttur"
+
+    String[] symptoms = {
+            "Fever",
+            "Coughing",
+            "Shortness of breath",
+            "Fatigue",
+            "Headache",
+            "Nausea",
+            "Vomiting",
+            "Diarrhea",
+            "Abdominal pain",
+            "Muscle aches",
+            "Joint pain",
+            "Rash",
+            "Chest pain",
+            "Dizziness",
+            "Confusion",
+            "Seizures",
+            "Loss of appetite",
+            "Swollen lymph nodes",
+            "Sore throat",
+            "Weight loss"
     };
 
-    private int buttonCount = diseaseNames.length;
+    private int buttonCount = symptoms.length;
     private SQLiteDatabase database;
     private TextView textView1;
     private EditText findTags;
@@ -93,15 +94,22 @@ public class CheckConditionsActivity extends AppCompatActivity {
 
         for (int i = 0; i < buttonCount; i++) {
             Button button = new Button(this);
-            button.setText(diseaseNames[i]); // Set the text from the array
+            String sympName = symptoms[i];
+            button.setText(sympName); // Set the text from the array
+
             button.setId(View.generateViewId());
 
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    v.setEnabled(false); // Disable the clicked button
 
-                    v.setBackgroundColor(getResources().getColor(android.R.color.darker_gray)); // Set a gray background
+                    button.setVisibility(View.GONE); // Make the button disappear
+
+//                    v.setEnabled(false); // Disable the clicked button
+
+                    symptomsSet.add(sympName);
+                    adapter.add(sympName);
+//                    v.setBackgroundColor(getResources().getColor(android.R.color.darker_gray)); // Set a gray background
                 }
             });
 
@@ -132,7 +140,7 @@ public class CheckConditionsActivity extends AppCompatActivity {
         if (count == 0) {
             database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('tuberculosis', 'coughing,screaming', 'peanut butter');");
             database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('hergitis', 'eating', 'peanut butter');");
-            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('sinitosis', 'wheezing', 'peanut butter');");
+            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('sinitosis', 'Diarrhea', 'peanut butter');");
         }
     }
 
