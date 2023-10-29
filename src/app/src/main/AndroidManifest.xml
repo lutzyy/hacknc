@@ -13,16 +13,7 @@
         android:theme="@style/Theme.DBDemo"
         tools:targetApi="31">
         <activity
-            android:name=".NewSketch"
-            android:exported="false" />
-        <activity
-            android:name=".SketchRefresh"
-            android:exported="false" />
-        <activity
             android:name=".CheckConditionsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Sketch"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
