@@ -137,7 +137,8 @@ public class CheckConditionsActivity extends AppCompatActivity {
                     csv_out.setID(1);
                 }
                 csv_out.setCOND(tokens[1]);
-                csv_out.setMED(tokens[2]);
+                csv_out.setSYMP(tokens[2]);
+                csv_out.setMED(tokens[3]);
 
                 csv.add(csv_out);
                 Log.d("My Activity", "Just created: " + csv);
@@ -171,10 +172,11 @@ public class CheckConditionsActivity extends AppCompatActivity {
         cursor.close();
         int size = csv.size();
         for (int i = 0; i < size; i++){
-            int x = csv.get(i).getID();
+//            int x = csv.get(i).getID();
             String y = csv.get(i).getCOND();
-            String z = csv.get(i).getMED();
-            String sql = "INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('" + x + "','" + y + "', '" + z + "');";
+            String z = csv.get(i).getSYMP();
+            String a = csv.get(i).getMED();
+            String sql = "INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('" + y + "', '" + z + "', '" + a + "');";
 
             if (count == 0) {
                 database.execSQL(sql);

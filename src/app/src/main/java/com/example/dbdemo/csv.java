@@ -3,6 +3,7 @@ package com.example.dbdemo;
 public class csv {
     private int ID;
     private String COND;
+    private String SYMP;
     private String MED;
 
 
@@ -12,7 +13,12 @@ public class csv {
     public void setID(int ID){
         this.ID = ID;
     }
-
+    public String getSYMP(){
+        return SYMP;
+    }
+    public void setSYMP(String SYMP){
+        this.SYMP = SYMP;
+    }
     public String getCOND(){
         return COND;
     }
@@ -30,6 +36,7 @@ public class csv {
         return "csv{" +
                 "ID = '" + ID + '\'' +
                 ", COND = " + COND +
+                ", SYMP = " + SYMP +
                 ", MED = " + MED +
                 '}';
     }
