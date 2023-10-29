@@ -12,9 +12,11 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -31,6 +33,30 @@ import java.util.Locale;
 
 
 public class CheckConditionsActivity extends AppCompatActivity {
+    private String[] diseaseNames = {
+            "dangerouscollum",
+            "excatecollum",
+            "intricantcollum",
+            "nontremblcollum",
+            "severuscollum",
+            "evencollum",
+            "flexibilecollum",
+            "dangerousgula",
+            "excategula",
+            "intricantgula",
+            "nontremblgula",
+            "severusgula",
+            "evengula",
+            "flexibilegula",
+            "dangerousguttur",
+            "excateguttur",
+            "intricantguttur",
+            "nontremblguttur",
+            "severusguttur",
+            "evenguttur"
+    };
+
+    private int buttonCount = diseaseNames.length;
     private SQLiteDatabase database;
     private TextView textView1;
     private EditText findTags;
@@ -63,7 +89,25 @@ public class CheckConditionsActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         listView.setAdapter(adapter);
 
-//        fetchTopThreeEntriesFromconditionsTable();
+        LinearLayout layout = findViewById(R.id.buttonLayout); // Replace with your layout ID
+
+        for (int i = 0; i < buttonCount; i++) {
+            Button button = new Button(this);
+            button.setText(diseaseNames[i]); // Set the text from the array
+            button.setId(View.generateViewId());
+
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    v.setEnabled(false); // Disable the clicked button
+
+                    v.setBackgroundColor(getResources().getColor(android.R.color.darker_gray)); // Set a gray background
+                }
+            });
+
+            layout.addView(button);
+        }
+
     }
 
     private void createTableIfNotExists() {
