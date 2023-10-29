@@ -1,58 +1,58 @@
 ,disease_name,symptoms,dont_take
-0,"disease_name","symptoms","dont_take"
-1,"dangerouscollum","Swollen lymphnodes, Abdominal pain, Diarrhea, Jointpain, Headache, Coughing, Rash","stritindel, zollinemine, rinelinelin"
-2,"excatecollum","Nausea, Abdominal pain, Headache, Coughing, Rash, Loss of appetite, Vomiting","rinelinelin, crirestamobeta, alphqueren"
-3,"intricantcollum","Muscle aches, Swollen lymphnodes, Fatigue, Nausea, Dizziness","ropaphpotminerest, truarmquezolacet"
-4,"nontremblcollum","Seizures, Nausea, Fatigue, Coughing, Chest pain","ropaphbetamategnu, oneholsetrest, criphaneoneacet"
-5,"severuscollum","Chest pain, Dizziness, Fever","matelineminerop, armdelacet"
-6,"evencollum","Vomiting, Fever, Rash, Seizures, Loss of appetite, Headache, Diarrhea","menurisetsertglo, renminepho, klostriholdellin, weramopot"
-7,"flexibilecollum","Vomiting, Fatigue, Chest pain, Jointpain, Diarrhea","sertbluglozolgnu, ropalphque, xirestminephanebeta"
-8,"dangerousgula","Rash, Sore throat, Fatigue, Jointpain","blupotarmalph, onerinemate, truxiarm, gnuphotrublu"
-9,"excategula","Jointpain, Coughing, Chest pain, Diarrhea, Vomiting, Fever","menurisetsertglo, klostriholdellin"
-10,"intricantgula","Loss of appetite, Headache, Abdominal pain, Confusion, Dizziness, Diarrhea, Seizures, Sore throat","crignuarmtin, ropalphque, sertoneset, linebetagnuasphpho, trugluropstri"
-11,"nontremblgula","Jointpain, Loss of appetite, Abdominal pain, Dizziness, Diarrhea, Confusion, Fever, Shortness of breath","glomendelrine, glophoropslione, werxiphomineblu, onerinemate"
-12,"severusgula","Fever, Seizures, Dizziness, Nausea, Headache, Muscle aches, Confusion, Vomiting","quehutin, curretacet, sertbluglozolgnu, menholcurbeta, gnuphotrublu"
-13,"evengula","Nausea, Abdominal pain, Vomiting","renropcrignupot, ropuriamo, matelineminerop, glubetamenlinemine"
-14,"flexibilegula","Vomiting, Muscle aches, Dizziness, Seizures","renropcrignupot, menholcurbeta, ropzolrestret"
-15,"dangerousguttur","Confusion, Dizziness, Abdominal pain, Loss of appetite, Rash, Fever","gloslignuacet, quementru, stripotarmbeta, linpotcri, phanexizolset"
-16,"excateguttur","Weight loss, Headache, Diarrhea, Sore throat, Rash, Vomiting","gluurirestamophane, strirenret, linetrugamsliren, menglusert"
-17,"intricantguttur","Fever, Jointpain, Fatigue, Swollen lymphnodes, Weight loss, Diarrhea","humatecurque, slicururigam, linpotcri, acetpotoneset, aphchisli"
-18,"nontremblguttur","Seizures, Weight loss, Fever, Vomiting","menklocurdelglo, slibetablu, ropuriamo, chihulindel, acetmenzollinasph"
-19,"severusguttur","Weight loss, Sore throat, Swollen lymphnodes, Headache, Seizures","ropzoloneasph, trulineslibeta, alphhuamoline, linexibludelarm"
-20,"evenguttur","Loss of appetite, Vomiting, Confusion, Abdominal pain","setsliurichibeta, slicurlinrine, alphhuminestriaph, gloretpot"
-21,"flexibileguttur","Jointpain, Shortness of breath, Fever, Sore throat, Seizures","mecriquedelrest, xirestcriglo, blutincrinuam, alphquecriglo, trisertdelglo"
-22,"dangerouspanc","Coughing, Diarrhea, Fever, Vomiting, Sore throat, Muscle aches","metribetamining, criphaneoneacet, triphrestbetglo"
-23,"excatepanc","Fever, Abdominal pain, Loss of appetite, Rash, Nausea, Confusion","ropatriphrest, curretsliu, glubetapine, renminepho"
-24,"intricantpanc","Sore throat, Nausea, Chest pain, Weight loss, Swollen lymphnodes, Diarrhea, Rash","ropatriphrest, menklocurdelglo, quehutin, slibetablu"
-25,"nontremblpanc","Loss of appetite, Diarrhea, Confusion, Sore throat, Fever, Vomiting, Abdominal pain","blutincrinuam, renropcrignupot, linetrugamsliren, criphaneoneacet"
-26,"severuspanc","Swollen lymphnodes, Weight loss, Abdominal pain, Headache, Jointpain, Shortness of breath, Fever, Coughing","quehutin, xirestcriglo, renminepho, alphhuamoline"
-27,"evenpanc","Coughing, Rash, Diarrhea, Weight loss, Seizures, Loss of appetite, Chest pain, Sore throat","stritindel, setblutrestblu, linminephorop, quehutin"
-28,"flexibilepanc","Nausea, Sore throat, Shortness of breath, Chest pain, Dizziness","ropzolrestret, glubetapine, matelineminerop"
-29,"dangerousvesic","Fever, Abdominal pain, Loss of appetite, Sore throat, Coughing, Rash, Shortness of breath","ropaphpotminerest, xirestcriglo, menminephane, linpotcri, quephomechisli"
-30,"excatevesic","Rash, Headache, Fatigue, Sore throat, Dizziness, Chest pain, Nausea, Shortness of breath","ropatriphrest, linebetagnuasphpho, glubetamenlinemine"
-31,"intricantvesic","Dizziness, Seizures, Jointpain, Muscle aches, Confusion, Shortness of breath, Coughing","glophoropslione, setsliurichibeta, klostriholdellin, aphchisli, blutincrinuam"
-32,"nontremblvesic","Sore throat, Nausea, Abdominal pain, Loss of appetite, Headache, Weight loss, Shortness of breath","weramopot, renropcrignupot, humatecurque, linminephorop, xirestcriglo"
-33,"severusvesic","Loss of appetite, Fever, Fatigue, Shortness of breath, Swollen lymphnodes, Weight loss, Coughing, Sore throat","ropzoloneasph, linpotcri, curretsliu, quephomechisli, acetpotoneset"
-34,"evenvesic","Coughing, Rash, Headache, Nausea, Confusion, Sore throat, Weight loss, Dizziness","metribetamining, sertbluglozolgnu, glubetapine, trugluropstri"
-35,"flexibilevesic","Seizures, Chest pain, Loss of appetite, Weight loss, Headache, Abdominal pain, Jointpain","quehutin, stritindel, onerinemate, renminepho, slicururigam"
-36,"dangerouscardio","Chest pain, Shortness of breath, Swollen lymphnodes, Abdominal pain, Fatigue, Jointpain, Confusion, Sore throat","ropaphpotminerest, klostriholdellin, quephomechisli, menholcurbeta, strirenret"
-37,"excatecardio","Abdominal pain, Coughing, Shortness of breath, Weight loss, Seizures, Rash, Nausea","ropatriphrest, trulineslibeta, renminepho"
-38,"intricantcardio","Sore throat, Loss of appetite, Rash, Confusion, Jointpain, Headache, Dizziness, Chest pain","ropatriphrest, humatecurque, xirestcriglo"
-39,"nontremblcardio","Dizziness, Sore throat, Nausea, Abdominal pain, Shortness of breath, Fever, Seizures, Rash","blutincrinuam, quehutin, setsliurichibeta, onerinemate"
-40,"severuscardio","Coughing, Headache, Fatigue, Confusion, Swollen lymphnodes, Weight loss, Chest pain","ropzoloneasph, linpotcri, curretsliu, menklocurdelglo"
-41,"evencardio","Shortness of breath, Weight loss, Seizures, Coughing, Sore throat, Nausea, Rash","metribetamining, sertbluglozolgnu, trugluropstri"
-42,"flexibilecardio","Loss of appetite, Jointpain, Abdominal pain, Dizziness, Fever, Chest pain, Confusion","quephomechisli, stritindel, renropcrignupot"
-43,"dangerousrespiratory","Fever, Coughing, Shortness of breath, Chest pain, Confusion, Dizziness, Nausea, Swollen lymphnodes","ropzoloneasph, ropatriphrest, quephomechisli, linminephorop, klostriholdellin"
-44,"excaterespiratory","Shortness of breath, Fatigue, Weight loss, Sore throat, Headache, Loss of appetite, Jointpain","menholcurbeta, renropcrignupot, quehutin, blutincrinuam"
-45,"intricantrespiratory","Sore throat, Nausea, Coughing, Dizziness, Rash, Seizures, Abdominal pain, Confusion","ropatriphrest, stritindel, sertbluglozolgnu, blutincrinuam, menklocurdelglo"
-46,"nontremblrespiratory","Rash, Loss of appetite, Weight loss, Shortness of breath, Fever, Chest pain, Swollen lymphnodes","linpotcri, humatecurque, trugluropstri, slicururigam"
-47,"severusrespiratory","Fever, Shortness of breath, Confusion, Nausea, Chest pain, Headache, Jointpain, Coughing","ropaphpotminerest, quephomechisli, sertbluglozolgnu, quehutin"
-48,"evenrespiratory","Coughing, Seizures, Abdominal pain, Rash, Sore throat, Loss of appetite, Dizziness","ropatriphrest, menminephane, renminepho"
-49,"flexibilerespiratory","Coughing, Shortness of breath, Chest pain, Dizziness, Jointpain, Swollen lymphnodes, Weight loss","metribetamining, quehutin, xirestcriglo"
-50,"dangerousdigestive","Abdominal pain, Nausea, Fatigue, Sore throat, Headache, Confusion, Chest pain, Loss of appetite","ropzoloneasph, klostriholdellin, onerinemate, glubetamenlinemine, blutincrinuam"
-51,"excatedigestive","Nausea, Loss of appetite, Weight loss, Dizziness, Shortness of breath, Rash, Coughing","ropatriphrest, slicururigam, humatecurque"
-52,"intricantdigestive","Sore throat, Rash, Abdominal pain, Coughing, Confusion, Chest pain, Seizures, Fever","linminephorop, quephomechisli, sertbluglozolgnu, quehutin"
-53,"nontrembldigestive","Weight loss, Sore throat, Headache, Jointpain, Dizziness, Fever, Shortness of breath, Loss of appetite","blutincrinuam, renminepho, sertbluglozolgnu, menminephane"
-54,"severusdigestive","Dizziness, Chest pain, Abdominal pain, Nausea, Coughing, Confusion, Rash","metribetamining, ropaphpotminerest, trugluropstri"
-55,"evenedigestive","Coughing, Loss of appetite, Shortness of breath, Fever, Seizures, Swollen lymphnodes, Weight loss","metribetamining, trugluropstri, slicururigam, renropcrignupot"
-56,"flexibiledigestive","Abdominal pain, Headache, Sore throat, Rash, Nausea, Jointpain, Confusion","ropzoloneasph, onerinemate, quehutin"
+0,disease_name,symptoms,dont_take
+1,dangerouscollum,Swollen lymphnodes+Abdominal pain+Diarrhea+Jointpain+Headache+Coughing+Rash,stritindel+zollinemine+rinelinelin
+2,excatecollum,Nausea+Abdominal pain+Headache+Coughing+Rash+Loss of appetite+Vomiting,rinelinelin+crirestamobeta+alphqueren
+3,intricantcollum,Muscle aches+Swollen lymphnodes+Fatigue+Nausea+Dizziness,ropaphpotminerest+truarmquezolacet
+4,nontremblcollum,Seizures+Nausea+Fatigue+Coughing+Chest pain,ropaphbetamategnu+oneholsetrest+criphaneoneacet
+5,severuscollum,Chest pain+Dizziness+Fever,matelineminerop+armdelacet
+6,evencollum,Vomiting+Fever+Rash+Seizures+Loss of appetite+Headache+Diarrhea,menurisetsertglo+renminepho+klostriholdellin+weramopot
+7,flexibilecollum,Vomiting+Fatigue+Chest pain+Jointpain+Diarrhea,sertbluglozolgnu+ropalphque+xirestminephanebeta
+8,dangerousgula,Rash+Sore throat+Fatigue+Jointpain,blupotarmalph+onerinemate+truxiarm+gnuphotrublu
+9,excategula,Jointpain+Coughing+Chest pain+Diarrhea+Vomiting+Fever,menurisetsertglo+klostriholdellin
+10,intricantgula,Loss of appetite+Headache+Abdominal pain+Confusion+Dizziness+Diarrhea+Seizures+Sore throat,crignuarmtin+ropalphque+sertoneset+linebetagnuasphpho+trugluropstri
+11,nontremblgula,Jointpain+Loss of appetite+Abdominal pain+Dizziness+Diarrhea+Confusion+Fever+Shortness of breath,glomendelrine+glophoropslione+werxiphomineblu+onerinemate
+12,severusgula,Fever+Seizures+Dizziness+Nausea+Headache+Muscle aches+Confusion+Vomiting,quehutin+curretacet+sertbluglozolgnu+menholcurbeta+gnuphotrublu
+13,evengula,Nausea+Abdominal pain+Vomiting,renropcrignupot+ropuriamo+matelineminerop+glubetamenlinemine
+14,flexibilegula,Vomiting+Muscle aches+Dizziness+Seizures,renropcrignupot+menholcurbeta+ropzolrestret
+15,dangerousguttur,Confusion+Dizziness+Abdominal pain+Loss of appetite+Rash+Fever,gloslignuacet+quementru+stripotarmbeta+linpotcri+phanexizolset
+16,excateguttur,Weight loss+Headache+Diarrhea+Sore throat+Rash+Vomiting,gluurirestamophane+strirenret+linetrugamsliren+menglusert
+17,intricantguttur,Fever+Jointpain+Fatigue+Swollen lymphnodes+Weight loss+Diarrhea,humatecurque+slicururigam+linpotcri+acetpotoneset+aphchisli
+18,nontremblguttur,Seizures+Weight loss+Fever+Vomiting,menklocurdelglo+slibetablu+ropuriamo+chihulindel+acetmenzollinasph
+19,severusguttur,Weight loss+Sore throat+Swollen lymphnodes+Headache+Seizures,ropzoloneasph+trulineslibeta+alphhuamoline+linexibludelarm
+20,evenguttur,Loss of appetite+Vomiting+Confusion+Abdominal pain,setsliurichibeta+slicurlinrine+alphhuminestriaph+gloretpot
+21,flexibileguttur,Jointpain+Shortness of breath+Fever+Sore throat+Seizures,mecriquedelrest+xirestcriglo+blutincrinuam+alphquecriglo+trisertdelglo
+22,dangerouspanc,Coughing+Diarrhea+Fever+Vomiting+Sore throat+Muscle aches,metribetamining+criphaneoneacet+triphrestbetglo
+23,excatepanc,Fever+Abdominal pain+Loss of appetite+Rash+Nausea+Confusion,ropatriphrest+curretsliu+glubetapine+renminepho
+24,intricantpanc,Sore throat+Nausea+Chest pain+Weight loss+Swollen lymphnodes+Diarrhea+Rash,ropatriphrest+menklocurdelglo+quehutin+slibetablu
+25,nontremblpanc,Loss of appetite+Diarrhea+Confusion+Sore throat+Fever+Vomiting+Abdominal pain,blutincrinuam+renropcrignupot+linetrugamsliren+criphaneoneacet
+26,severuspanc,Swollen lymphnodes+Weight loss+Abdominal pain+Headache+Jointpain+Shortness of breath+Fever+Coughing,quehutin+xirestcriglo+renminepho+alphhuamoline
+27,evenpanc,Coughing+Rash+Diarrhea+Weight loss+Seizures+Loss of appetite+Chest pain+Sore throat,stritindel+setblutrestblu+linminephorop+quehutin
+28,flexibilepanc,Nausea+Sore throat+Shortness of breath+Chest pain+Dizziness,ropzolrestret+glubetapine+matelineminerop
+29,dangerousvesic,Fever+Abdominal pain+Loss of appetite+Sore throat+Coughing+Rash+Shortness of breath,ropaphpotminerest+xirestcriglo+menminephane+linpotcri+quephomechisli
+30,excatevesic,Rash+Headache+Fatigue+Sore throat+Dizziness+Chest pain+Nausea+Shortness of breath,ropatriphrest+linebetagnuasphpho+glubetamenlinemine
+31,intricantvesic,Dizziness+Seizures+Jointpain+Muscle aches+Confusion+Shortness of breath+Coughing,glophoropslione+setsliurichibeta+klostriholdellin+aphchisli+blutincrinuam
+32,nontremblvesic,Sore throat+Nausea+Abdominal pain+Loss of appetite+Headache+Weight loss+Shortness of breath,weramopot+renropcrignupot+humatecurque+linminephorop+xirestcriglo
+33,severusvesic,Loss of appetite+Fever+Fatigue+Shortness of breath+Swollen lymphnodes+Weight loss+Coughing+Sore throat,ropzoloneasph+linpotcri+curretsliu+quephomechisli+acetpotoneset
+34,evenvesic,Coughing+Rash+Headache+Nausea+Confusion+Sore throat+Weight loss+Dizziness,metribetamining+sertbluglozolgnu+glubetapine+trugluropstri
+35,flexibilevesic,Seizures+Chest pain+Loss of appetite+Weight loss+Headache+Abdominal pain+Jointpain,quehutin+stritindel+onerinemate+renminepho+slicururigam
+36,dangerouscardio,Chest pain+Shortness of breath+Swollen lymphnodes+Abdominal pain+Fatigue+Jointpain+Confusion+Sore throat,ropaphpotminerest+klostriholdellin+quephomechisli+menholcurbeta+strirenret
+37,excatecardio,Abdominal pain+Coughing+Shortness of breath+Weight loss+Seizures+Rash+Nausea,ropatriphrest+trulineslibeta+renminepho
+38,intricantcardio,Sore throat+Loss of appetite+Rash+Confusion+Jointpain+Headache+Dizziness+Chest pain,ropatriphrest+humatecurque+xirestcriglo
+39,nontremblcardio,Dizziness+Sore throat+Nausea+Abdominal pain+Shortness of breath+Fever+Seizures+Rash,blutincrinuam+quehutin+setsliurichibeta+onerinemate
+40,severuscardio,Coughing+Headache+Fatigue+Confusion+Swollen lymphnodes+Weight loss+Chest pain,ropzoloneasph+linpotcri+curretsliu+menklocurdelglo
+41,evencardio,Shortness of breath+Weight loss+Seizures+Coughing+Sore throat+Nausea+Rash,metribetamining+sertbluglozolgnu+trugluropstri
+42,flexibilecardio,Loss of appetite+Jointpain+Abdominal pain+Dizziness+Fever+Chest pain+Confusion,quephomechisli+stritindel+renropcrignupot
+43,dangerousrespiratory,Fever+Coughing+Shortness of breath+Chest pain+Confusion+Dizziness+Nausea+Swollen lymphnodes,ropzoloneasph+ropatriphrest+quephomechisli+linminephorop+klostriholdellin
+44,excaterespiratory,Shortness of breath+Fatigue+Weight loss+Sore throat+Headache+Loss of appetite+Jointpain,menholcurbeta+renropcrignupot+quehutin+blutincrinuam
+45,intricantrespiratory,Sore throat+Nausea+Coughing+Dizziness+Rash+Seizures+Abdominal pain+Confusion,ropatriphrest+stritindel+sertbluglozolgnu+blutincrinuam+menklocurdelglo
+46,nontremblrespiratory,Rash+Loss of appetite+Weight loss+Shortness of breath+Fever+Chest pain+Swollen lymphnodes,linpotcri+humatecurque+trugluropstri+slicururigam
+47,severusrespiratory,Fever+Shortness of breath+Confusion+Nausea+Chest pain+Headache+Jointpain+Coughing,ropaphpotminerest+quephomechisli+sertbluglozolgnu+quehutin
+48,evenrespiratory,Coughing+Seizures+Abdominal pain+Rash+Sore throat+Loss of appetite+Dizziness,ropatriphrest+menminephane+renminepho
+49,flexibilerespiratory,Coughing+Shortness of breath+Chest pain+Dizziness+Jointpain+Swollen lymphnodes+Weight loss,metribetamining+quehutin+xirestcriglo
+50,dangerousdigestive,Abdominal pain+Nausea+Fatigue+Sore throat+Headache+Confusion+Chest pain+Loss of appetite,ropzoloneasph+klostriholdellin+onerinemate+glubetamenlinemine+blutincrinuam
+51,excatedigestive,Nausea+Loss of appetite+Weight loss+Dizziness+Shortness of breath+Rash+Coughing,ropatriphrest+slicururigam+humatecurque
+52,intricantdigestive,Sore throat+Rash+Abdominal pain+Coughing+Confusion+Chest pain+Seizures+Fever,linminephorop+quephomechisli+sertbluglozolgnu+quehutin
+53,nontrembldigestive,Weight loss+Sore throat+Headache+Jointpain+Dizziness+Fever+Shortness of breath+Loss of appetite,blutincrinuam+renminepho+sertbluglozolgnu+menminephane
+54,severusdigestive,Dizziness+Chest pain+Abdominal pain+Nausea+Coughing+Confusion+Rash,metribetamining+ropaphpotminerest+trugluropstri
+55,evenedigestive,Coughing+Loss of appetite+Shortness of breath+Fever+Seizures+Swollen lymphnodes+Weight loss,metribetamining+trugluropstri+slicururigam+renropcrignupot
+56,flexibiledigestive,Abdominal pain+Headache+Sore throat+Rash+Nausea+Jointpain+Confusion,ropzoloneasph+onerinemate+quehutin
