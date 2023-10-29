@@ -8,11 +8,12 @@
 
 ## Project Description:
 
-Beight is an Android app developed for HackNC 2023, designed to enhance patient safety by preventing the misadministration of medicine. Our app leverages user-inputted medical conditions and medication information to provide real-time guidance, and alerts to ensure that medications are taken correctly and safely.
+Beight is an Android app developed for HackNC 2023, designed to enhance patient safety by preventing the misdiagnosis of diseases. Our app leverages doctor directed usage of our user-selected medical symptoms to provide real-time guidance, and alerts to ensure that commonly misdiagnosed diseases are discovered and dangerous medications related to these diseases are not taken.
 
 ## Features:
-- User-friendly interface for inputting medical conditions and medications.
-- Medication interaction checker to identify potential conflicts.
+- Based on doctor-identified base conditions, our app narrows down the possibilities for doctors and nurses to save them time, and keep patients safe from accidental diagnosis.
+- User-friendly interface for inputting medical conditions.
+- Identification of dangerous medications related to commonly misdiagnosed diseases.
 - Additional resources and information on medication safety.
 
 ## Getting Started:
