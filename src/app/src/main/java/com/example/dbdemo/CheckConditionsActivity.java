@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
@@ -23,12 +24,18 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 
 
@@ -69,12 +76,14 @@ public class CheckConditionsActivity extends AppCompatActivity {
     private ListView listView;
     private ArrayAdapter<String> adapter;
     private int tableLength;
+    private List<csv> csv = new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
+        csvToArray();
 
         database = openOrCreateDatabase("my_database.db", MODE_PRIVATE, null);
         createTableIfNotExists();
@@ -114,6 +123,45 @@ public class CheckConditionsActivity extends AppCompatActivity {
 
     }
 
+    private void csvToArray() {
+        InputStream is = getResources().openRawResource(R.raw.export_file);
+        BufferedReader br = new BufferedReader(
+                new InputStreamReader(is, Charset.forName("UTF-8"))
+        );
+
+        String line = "";
+        try {
+            // Step over headers
+            br.readLine();
+
+            while((line = br.readLine()) != null) {
+
+                // Seperate by ,
+                String[] tokens = line.split(",");
+
+                // Read the data
+                csv csv_out= new csv();
+
+                // Handle blank ID
+                if(tokens[1].length() > 0 && tokens.length >= 3) {
+                    csv_out.setID(Integer.parseInt(tokens[0]));
+                }else{
+                    csv_out.setID(1);
+                }
+                csv_out.setCOND(tokens[1]);
+                csv_out.setMED(tokens[2]);
+
+                csv.add(csv_out);
+                Log.d("My Activity", "Just created: " + csv);
+
+
+            }
+        } catch (IOException e) {
+            Log.wtf("My activity", "Error reading in file on line " + line, e);
+            e.printStackTrace();
+        }
+
+    }
     private void createTableIfNotExists() {
         // add if not exists later
         database.execSQL("DROP TABLE IF EXISTS conditionsTable");
@@ -133,11 +181,18 @@ public class CheckConditionsActivity extends AppCompatActivity {
     private void createDummyData(Cursor cursor) {
         int count = cursor.getInt(0);
         cursor.close();
-        if (count == 0) {
-            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('dangerouscollum', 'Swollen lymphnodes, Abdominal pain, Diarrhea, Jointpain, Headache, Coughing, Rash', 'stritindel, zollinemine, rinelinelin');");
-            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('excatecollum', 'Nausea, Abdominal pain, Headache, Coughing, Rash, Loss of appetite, Vomiting', 'rinelinelin, crirestamobeta, alphqueren');");
-            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('intricantcollum', 'Muscle aches, Swollen lymphnodes, Fatigue, Nausea, Dizziness', 'ropaphpotminerest, truarmquezolacet\n');");
+        int size = csv.size();
+        for (int i = 0; i < size; i++){
+            int x = csv.get(i).getID();
+            String y = csv.get(i).getCOND();
+            String z = csv.get(i).getMED();
+            String sql = "INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('" + x + "','" + y + "', '" + z + "');";
+
+            if (count == 0) {
+                database.execSQL(sql);
+            }
         }
+
     }
 
 
