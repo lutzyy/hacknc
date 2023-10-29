@@ -67,7 +67,9 @@ public class CheckConditionsActivity extends AppCompatActivity {
     }
 
     private void createTableIfNotExists() {
-        database.execSQL("CREATE TABLE IF NOT EXISTS conditionsTable ("
+        // add if not exists later
+        database.execSQL("DROP TABLE IF EXISTS conditionsTable");
+        database.execSQL("CREATE TABLE conditionsTable ("
                 + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "CONDITIONS TEXT, "
                 + "SYMPTOMS TEXT, "
@@ -85,8 +87,8 @@ public class CheckConditionsActivity extends AppCompatActivity {
         cursor.close();
         if (count == 0) {
             database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('tuberculosis', 'coughing,screaming', 'peanut butter');");
-            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('tuberculosis', 'eating', 'peanut butter');");
-            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('tuberculosis', 'wheezing', 'peanut butter');");
+            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('hergitis', 'eating', 'peanut butter');");
+            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('sinitosis', 'wheezing', 'peanut butter');");
         }
     }
 
@@ -133,21 +135,34 @@ public class CheckConditionsActivity extends AppCompatActivity {
 
     private String[] getRowSymptomList(int index) {
         String query = "SELECT * FROM conditionsTable WHERE ID = " + index;
-
-
         Cursor cursor = database.rawQuery(query, null);
         cursor.moveToLast();
-
-            @SuppressLint("Range") String symptoms = cursor.getString(cursor.getColumnIndex("SYMPTOMS"));
-
-
-
-            String[] wordsArray = symptoms.split(",\\s*");
-            cursor.close();
-            return wordsArray;
-
-
+        @SuppressLint("Range") String symptoms = cursor.getString(cursor.getColumnIndex("SYMPTOMS"));
+        String[] wordsArray = symptoms.split(",\\s*");
+        cursor.close();
+        return wordsArray;
     }
+
+    private String getRowDisease(int index) {
+        String query = "SELECT * FROM conditionsTable WHERE ID = " + index;
+        Cursor cursor = database.rawQuery(query, null);
+        cursor.moveToLast();
+        @SuppressLint("Range") String condition = cursor.getString(cursor.getColumnIndex("CONDITIONS"));
+        cursor.close();
+        return condition;
+    }
+
+    private String[] getRowDontTake(int index) {
+        String query = "SELECT * FROM conditionsTable WHERE ID = " + index;
+        Cursor cursor = database.rawQuery(query, null);
+        cursor.moveToLast();
+        @SuppressLint("Range") String symptoms = cursor.getString(cursor.getColumnIndex("DONT_TAKE"));
+        String[] wordsArray = symptoms.split(",\\s*");
+        cursor.close();
+        return wordsArray;
+    }
+
+
 
 
 
@@ -184,27 +199,39 @@ public class CheckConditionsActivity extends AppCompatActivity {
     }
 
     public void searchSymptoms(View view) {
-        tableLength = 2;
+        tableLength = 4;
         double maxPercentage = 0.0;
         int maxIndex = 0;
 
 
+        for (int i = 1; i < tableLength; i++) {
             try {
-                String[] rowSymptoms = getRowSymptomList(0);
+                String[] rowSymptoms = getRowSymptomList(i);
                 double rowPercentage = getPercentageSymptoms(rowSymptoms);
                 if (rowPercentage > maxPercentage) {
                     maxPercentage = rowPercentage;
-                    maxIndex = 0;
+                    maxIndex = i;
                 }
             } catch (Exception e) {
 
             }
+        }
+
 
 
 
         String result;
         if (maxPercentage > 0.5) {
-            result = "result is conclusive";
+            String mostLikely = getRowDisease(maxIndex);
+            String[] dontTake = getRowDontTake(maxIndex);
+            StringBuilder symptomBuilder = new StringBuilder();
+            symptomBuilder.append(dontTake[0]);
+            for (int i = 1; i < dontTake.length; i++) {
+                symptomBuilder.append(", "+dontTake[i]);
+            }
+            result = "You matched with " + (maxPercentage * 100) +"% of the known symptoms for " + mostLikely + " " +
+                    "which means these medications should be avoided: " + symptomBuilder.toString();
+
         } else {
             result = "result is inconclusive " + maxPercentage;
 
