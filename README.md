@@ -4,6 +4,7 @@
 - Caleb Sigmon
 - Jocelyn Snodgrass
 - Ryan Lutz
+- Zach Vig
 
 ## Project Description:
 
@@ -38,6 +39,7 @@ For any questions, suggestions, or issues, please contact us:
 - Caleb Sigmon: cjsigmon@email.unc.edu
 - Jocelyn Snodgrass: jgayle@email.unc.edu
 - Ryan Lutz: rlutz@unc.edu
+- Zach Vig: zachvig@email.unc.edu
 
 We appreciate your interest in Beight, and your feedback is valuable to us!
 
