@@ -11,8 +11,11 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -20,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
@@ -28,8 +32,16 @@ import java.util.Locale;
 
 public class CheckConditionsActivity extends AppCompatActivity {
     private SQLiteDatabase database;
-    private TextView textView1, textView2, textView3;
+    private TextView textView1;
     private EditText findTags;
+
+    private int questionsIndex;
+    private int questionsLength;
+    private TextView resultText;
+    HashSet<String> symptomsSet;
+    private ListView listView;
+    private ArrayAdapter<String> adapter;
+    private int tableLength;
 
 
     @Override
@@ -41,17 +53,25 @@ public class CheckConditionsActivity extends AppCompatActivity {
         createTableIfNotExists();
 
         textView1 = findViewById(R.id.resultOne);
-        findTags = findViewById(R.id.tagSearchInput);
 
-        fetchTopThreeEntriesFromconditionsTable();
+        symptomsSet = new HashSet<>();
+        resultText = findViewById(R.id.resultText);
+
+        listView = findViewById(R.id.listView);
+
+        // Create an ArrayAdapter and associate it with the ListView
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        listView.setAdapter(adapter);
+
+//        fetchTopThreeEntriesFromconditionsTable();
     }
 
     private void createTableIfNotExists() {
         database.execSQL("CREATE TABLE IF NOT EXISTS conditionsTable ("
-                + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + "CONDITION_ID INTEGER, "
-                + "CONDITION TEXT, "
-                + "MED TEXT"
+                + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "CONDITIONS TEXT, "
+                + "SYMPTOMS TEXT, "
+                + "DONT_TAKE TEXT"
                 + ");");
         // Check if the table is empty and insert sample values if needed
         Cursor cursor = database.rawQuery("SELECT COUNT(*) FROM conditionsTable", null);
@@ -64,28 +84,13 @@ public class CheckConditionsActivity extends AppCompatActivity {
         int count = cursor.getInt(0);
         cursor.close();
         if (count == 0) {
-            database.execSQL("INSERT INTO conditionsTable (CONDITION_ID, CONDITION, MED) VALUES (88, 'spontaneous combustion', 'unavailable');");
-            database.execSQL("INSERT INTO conditionsTable (CONDITION_ID, CONDITION, MED) VALUES (124, 'ligma', 'skooby snacka');");
-            database.execSQL("INSERT INTO conditionsTable (CONDITION_ID, CONDITION, MED) VALUES (125, 'ligma', 'skooby snacka');");
-
+            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('tuberculosis', 'coughing,screaming', 'peanut butter');");
+            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('tuberculosis', 'eating', 'peanut butter');");
+            database.execSQL("INSERT INTO conditionsTable (CONDITIONS, SYMPTOMS, DONT_TAKE) VALUES ('tuberculosis', 'wheezing', 'peanut butter');");
         }
     }
 
-    private void fetchTopThreeEntriesFromconditionsTable() {
-        String query = "SELECT * FROM conditionsTable;";
-        Cursor cursor = database.rawQuery(query, null);
-        cursor.moveToLast();
 
-
-//      this is reused so make into helper method later
-        @SuppressLint("Range") int CONDITION_ID = cursor.getInt(1);
-        @SuppressLint("Range") String CONDITION = cursor.getString(2);
-        @SuppressLint("Range") String MED = cursor.getString(3);
-        String entryName = "Condition: " + CONDITION + " with medication: " + MED + "\n ID:" +
-                CONDITION_ID;
-        textView1.setText(entryName);
-        cursor.close();
-    }
 
 
 
@@ -103,9 +108,9 @@ public class CheckConditionsActivity extends AppCompatActivity {
         cursor.moveToLast();
 
         @SuppressLint("Range") int CONDITION_ID = cursor.getInt(1);
-        @SuppressLint("Range") String CONDITION = cursor.getString(2);
+        @SuppressLint("Range") String CONDITIONS = cursor.getString(2);
         @SuppressLint("Range") String MED = cursor.getString(3);
-        String entryName = "Condition: " + CONDITION + " with medication: " + MED + "\n ID:" +
+        String entryName = "Condition: " + CONDITIONS + " with medication: " + MED + "\n ID:" +
                 CONDITION_ID;
         textView1.setText(entryName);
         cursor.close();
@@ -120,5 +125,90 @@ public class CheckConditionsActivity extends AppCompatActivity {
     public void backHome(View view) {
         Intent homeIntent = new Intent(this, MainActivity.class);
         startActivity(homeIntent);
+    }
+
+    public void onCheckClick(View view) {
+        // do nothing so far
+    }
+
+    private String[] getRowSymptomList(int index) {
+        String query = "SELECT * FROM conditionsTable WHERE ID = " + index;
+
+
+        Cursor cursor = database.rawQuery(query, null);
+        cursor.moveToLast();
+
+            @SuppressLint("Range") String symptoms = cursor.getString(cursor.getColumnIndex("SYMPTOMS"));
+
+
+
+            String[] wordsArray = symptoms.split(",\\s*");
+            cursor.close();
+            return wordsArray;
+
+
+    }
+
+
+
+
+    public void clickEyes(View view) {
+        symptomsSet.add("dry eyes");
+        adapter.add("dry eyes");
+        view.setBackgroundColor(getResources().getColor(android.R.color.darker_gray)); // Set a gray background
+
+    }
+
+    public void clickCoughing(View view) {
+        symptomsSet.add("coughing");
+        adapter.add("coughing");
+        view.setBackgroundColor(getResources().getColor(android.R.color.darker_gray)); // Set a gray background
+
+    }
+
+    public void clickWheezing(View view) {
+
+        symptomsSet.add("wheezing");
+        adapter.add("wheezing");
+        view.setBackgroundColor(getResources().getColor(android.R.color.darker_gray)); // Set a gray background
+    }
+
+    private double getPercentageSymptoms(String[] rowSymptoms) {
+        double amount = 0.0;
+        for (int i = 0; i < rowSymptoms.length; i++) {
+            if(symptomsSet.contains(rowSymptoms[i])) {
+                amount++;
+            }
+        }
+        return amount/rowSymptoms.length;
+    }
+
+    public void searchSymptoms(View view) {
+        tableLength = 2;
+        double maxPercentage = 0.0;
+        int maxIndex = 0;
+
+
+            try {
+                String[] rowSymptoms = getRowSymptomList(0);
+                double rowPercentage = getPercentageSymptoms(rowSymptoms);
+                if (rowPercentage > maxPercentage) {
+                    maxPercentage = rowPercentage;
+                    maxIndex = 0;
+                }
+            } catch (Exception e) {
+
+            }
+
+
+
+        String result;
+        if (maxPercentage > 0.5) {
+            result = "result is conclusive";
+        } else {
+            result = "result is inconclusive " + maxPercentage;
+
+        }
+        resultText.setText(result);
     }
 }
