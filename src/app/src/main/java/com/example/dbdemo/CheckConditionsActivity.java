@@ -231,7 +231,7 @@ public class CheckConditionsActivity extends AppCompatActivity {
         Cursor cursor = database.rawQuery(query, null);
         cursor.moveToLast();
         @SuppressLint("Range") String symptoms = cursor.getString(cursor.getColumnIndex("SYMPTOMS"));
-        String[] wordsArray = symptoms.split(",\\s*");
+        String[] wordsArray = symptoms.split("\\+");
         cursor.close();
         return wordsArray;
     }
